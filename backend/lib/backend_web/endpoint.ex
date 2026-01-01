@@ -40,7 +40,12 @@ defmodule BackendWeb.Endpoint do
 
   plug Plug.RequestId
   plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
-  plug CORSPlug, origin: "*"
+  plug CORSPlug,
+  origin: [
+    "https://inventory-frontend.onrender.com",
+    "http://localhost:3000",
+    "http://localhost:5173"
+  ]
 
 
   plug Plug.Parsers,
